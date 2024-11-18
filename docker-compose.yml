@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: usuarios  # Nome do banco de dados
+      POSTGRES_USER: user      # Usuário do banco de dados
+      POSTGRES_PASSWORD: password  # Senha do banco de dados
+    ports:
+      - "5431:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data  # Volume para persistência de dados
+
+volumes:
+  postgres-data:  # Definição do volume
