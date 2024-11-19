@@ -22,16 +22,31 @@ public class GlobalExceptionHandler {
     }
     return ResponseEntity.badRequest().body(erros);
   }
+
+  //Capturar erro de email ja cadastrado
+  @ExceptionHandler(EmailJaCadastradoException.class)
+  public ResponseEntity<String> handleEmailJaCadastradoException(EmailJaCadastradoException ex) {
+    return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
+  }
+
   // Capturar erros de usuário não encontrado
   @ExceptionHandler(UsuarioNaoEncontradoException.class)
   public ResponseEntity<String>
   handleUsuarioNaoEncontradoException(UsuarioNaoEncontradoException ex) {
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
   }
+
+  // Capturar erros de lista total de usuários não encontrado
+  @ExceptionHandler(ListaUsuariosVaziaException.class)
+  public ResponseEntity<String> handleListaUsiariosVaziaException(ListaUsuariosVaziaException ex) {
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+  }
+
   // Capturar outras exceções genéricas
   @ExceptionHandler(Exception.class)
   public ResponseEntity<String> handleGenericException(Exception ex) {
     return
         ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro inesperado: " + ex.getMessage());
   }
+
 }
