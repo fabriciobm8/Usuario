@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class UsuarioModel {
   private String nome;
 
   @NotBlank(message = "O e-mail é obrigatório.")
+  @Email(message = "Formato de e-mail inválido.") //rejeita email sem: @, .com e dominio
   private String email;
 
 }
