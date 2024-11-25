@@ -1,0 +1,14 @@
+# Use a imagem oficial do PostgreSQL 15
+FROM postgres:15
+
+# Defina as variáveis de ambiente para o usuário, senha e banco de dados
+ENV POSTGRES_USER=user
+ENV POSTGRES_PASSWORD=password
+ENV POSTGRES_DB=usuarios
+ENV POSTGRES_INITDB_ARGS="--data-checksums"
+
+# Exponha a porta padrão do PostgreSQL
+EXPOSE 5432
+
+# Adicione scripts de inicialização (opcional)
+# COPY init.sql /docker-entrypoint-initdb.d/
