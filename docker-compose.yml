@@ -18,7 +18,9 @@ services:
       - app-network
 
   postgres-db:
-    image: postgres:15
+    build:
+      context: .
+      dockerfile: Dockerfile_db  # Usando o Dockerfile_db para construir o serviço de banco de dados
     container_name: postgres-db
     environment:
       - POSTGRES_DB=usuarios
