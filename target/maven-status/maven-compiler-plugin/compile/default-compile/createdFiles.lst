@@ -1,8 +1,0 @@
-com\multiversa\usuario\model\UsuarioModel.class
-com\multiversa\usuario\controller\UsuarioController.class
-com\multiversa\usuario\exception\GlobalExceptionHandler.class
-com\multiversa\usuario\repository\UsuarioRepository.class
-com\multiversa\usuario\exception\EmailJaCadastradoException.class
-com\multiversa\usuario\exception\ListaUsuariosVaziaException.class
-com\multiversa\usuario\UsuarioApplication.class
-com\multiversa\usuario\exception\UsuarioNaoEncontradoException.class
